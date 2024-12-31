@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <!-- RELATIONS - 
+    PARENT-CHILD
+    CHILD-CHILD
+    CHILD-PARENT -->
+    <div class="parent">
+        <!-- this is a comment -->
+        <div class="child">Monday</div>
+        <div class="child">Tuesday</div>
+        <div class="child">Wednesday</div>
+        <div class="child">Thursday</div>
+    </div>
+</body>
+<script>
+    // select parent element and see what values are present inside it
+
+    const parent = document.querySelector('.parent')
+    console.log(parent);
+    // <div class="parent">
+    //     <div class="child">Monday</div>
+    //     <div class="child">Tuesday</div>
+    //     <div class="child">Wednesday</div>
+    //     <div class="child">Thursday</div>
+    // </div>
+
+    // using CHILDREN PROPERTY (Parent - > Child)
+    console.log(parent.children)
+    // HTMLCollection(4) [div.child, div.child, div.child, div.child]
+    // 0 : div.child
+    // 1 : div.child
+    // 2 : div.child
+    // 3 : div.child
+    // length : 4
+    // [[Prototype]] : HTMLCollection
+    console.log(parent.children[1])
+    // <div class="child">Tuesday</div>
+    console.log(parent.children[1].innerHTML)
+    // Tuesday
+    for(let i = 0; i<parent.children.length; i++) {
+        console.log(parent.children[i].innerHTML)
+    }
+    // Monday
+    // Tuesday
+    // Wednesday
+    // Thursday
+    parent.children[1].style.color = "orange"
+    parent.children[1].style.padding = "10px"
+
+    // FIRST ELEMENT CHILD PROPERTY OF PARENT
+    console.log(parent.firstElementChild)
+    // <div class="child">Monday</div>
+    console.log(parent.lastElementChild);
+    // <div class="child">Thursday</div>
+    
+
+    // CHILD -> PARENT
+    const child1 = document.querySelector('.child')
+    console.log(child1);
+    // <div class="child">Monday</div>
+    console.log(child1.parentElement);
+    // <div class="parent">
+    //     <div class="child">Monday</div>
+    //     <div class="child">Tuesday</div>
+    //     <div class="child">Wednesday</div>
+    //     <div class="child">Thursday</div>
+    // </div>
+    console.log(child1.nextElementSibling)
+    // <div class="child" style="color: orange; padding: 10px;">Tuesday</div>
+
+    // GETTING CHILD NODES
+    console.log("NODES : ", parent.childNodes)
+    // NODES :  NodeList(9) [text, div.child, text, div.child, text, div.child, text, div.child, text]
+    /*
+    0: text -> One line break is counted
+    1: div.child
+    2: text
+    3: div.child
+    4: text
+    5: div.child
+    6: text
+    7: div.child
+    8: text
+    length: 9
+    [[Prototype]] : NodeList
+    */
+
+    // After adding comment, it will become NodeList(11)
+    // After adding one more line break, it will remain NodeList(9) because it do not count simultaneous linebreaks, all simultaneous linebreaks are treated as one.
+</script>
+</html>

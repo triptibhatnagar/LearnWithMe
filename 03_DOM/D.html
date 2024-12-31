@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="lang">
+        <li>JS</li>
+    </ul>
+</body>
+<script>
+    // ----------- ADD MORE <li> -----------
+    // Way1
+    function addList1(langName) {
+        const list = document.createElement('li')
+        list.innerHTML = langName
+        document.querySelector('.lang').appendChild(list)
+    }
+    addList1("py")
+    addList1("typescript")
+
+    // Way2 - optimized
+    // innerHTML involves traversing entire tree
+    function addList2(langName) {
+        const list = document.createElement('li')
+        list.appendChild(document.createTextNode(langName))
+        document.querySelector('.lang').appendChild(list)
+    }
+    addList2("golang")
+    addList2("flutter")
+
+    // ----------- EDIT - REPLACE WITH, OUTER HTML -----------
+    // replace py with Node JS
+    let secondLang = document.querySelector('li:nth-child(2)') //nth-child start from 1, not 0
+    // secondLang.innerHTML = "New Text"
+    // secondLang.textContent = "New Text"
+    let newLi = document.createElement('li')
+    newLi.appendChild(document.createTextNode("Node JS"))
+    secondLang.replaceWith(newLi)
+
+    // replace JS with jQuery
+    let firstLang = document.querySelector('li:nth-child(1)')
+    firstLang.outerHTML = "<li>jQuery</li>"
+
+    // ----------- REMOVE - remove() -----------
+    // remove flutter
+    const lastLang = document.querySelector("li:last-child")
+    lastLang.remove()
+</script>
+</html>

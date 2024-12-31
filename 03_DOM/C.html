@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    
+</body>
+<script>
+    // CREATING NEW ELEMENT
+    let H1 = document.createElement('h1')
+    console.log(H1)
+    // <h1></h1>
+    H1.className = "main"
+    // <h1 class="main"></h1>
+    // H1.id = "myId"
+    // <h1 class="main" id="myId"></h1>
+
+    // GENERATING RANDOM ID
+    H1.id = Math.round(Math.random() * 10 + 1)
+
+    H1.setAttribute("title", "hello world")
+    // <h1 class="main" id="7" title="hello world"></h1>
+    H1.style.backgroundColor = "green"
+    H1.style.padding = "20px"
+    // <h1 class="main" id="1" title="hello world" style="background-color: green; padding: 20px"></h1>
+
+    // This h1 is in the memory but not on the page
+
+    // How to attach??
+
+    // Adding content
+    H1.innerText = "Heyyyyy"
+    // <h1 class="main" id="1" title="hello world" style="background-color: green; padding: 20px">Heyyyyy</h1>
+
+    // setAttribute is more preferred for setting the attributes, instead of id, className, innerText because these things override the value, they take the reference, select the current value and then set the value
+    // but setAttribute directly set inside it, not take the reference.
+
+    // ANOTHER WAY to add content:-
+    let addText = document.createTextNode("How are you")
+    H1.appendChild(addText)
+
+    // HOW TO ATTACH??
+    document.body.appendChild(H1)
+
+    // you can create a function createNewDiv(text, bgcolor)
+    // you can run a loop with different color array and different text array
+</script>
+</html>

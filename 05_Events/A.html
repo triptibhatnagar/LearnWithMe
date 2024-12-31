@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+<body style="background-color: #212121; color: aqua;">
+    <h2>Amazing images</h2>
+    <div>
+        <ul id="images">
+            <li>
+                <img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop">
+            </li>
+            <li>
+                <img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="">
+            </li>
+            <li>
+                <img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="">
+            </li>
+            <li>
+                <img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" >
+            </li>
+            <li>
+                <img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="">
+            </li>
+            <li>
+                <a style="color: aliceblue;" href="https://google.com" id="google">Google</a>
+            </li>
+        </ul>
+   </div>
+</body>
+<script>
+    // JS is a sequentially run language
+    // browser events invoke on some activity
+
+    // Approach 1 - onclick in html
+    // <img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" onclick="alert('owl pic clicked')">
+    // don't use above approach in js - onclick directly injecting in html as it may effect the scalability of application
+
+    // Approach 2 - onclick in js
+    // document.getElementById('owl').onclick = function() {
+    //     alert("owl pic clicked")
+    // }
+    // in this approach, problems may arise in onclick because not much info is obtained
+    // less features obtained
+
+    // Approach 3 - event listener (best approach)
+    // not only gives onclick
+    // also provide propagation ability
+    document.getElementById('owl').addEventListener('click',(e) => {
+        console.log(e)
+    }, false)
+    // by default it is false, so no need to write but sometimes necessary
+
+    // Approach 4 - attachEvent(), used in previous times in the time of internet explorer
+
+    // Approach 5 - on(), when jQuery was in trend
+
+    // console.log(e) -> PointerEvent -> object
+
+    // COMMON TYPES OF EVENTS 
+    // 1) BROWSER EVENTS
+    // 2) ENVIRONMENT EVENTS
+
+    // -------------- TO STUDY:- --------------
+    // type, timestamps, defaultPrevented
+    // target, toElement, srcElement, currentTraget
+    // clientX, clientY, offset, screenX, screenY
+    // altKey, CtrlKey, shiftkey, keyCode
+
+    // EVENT PROPAGATION
+
+</script>
+</html>
