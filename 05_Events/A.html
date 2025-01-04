@@ -48,9 +48,9 @@
     // Approach 3 - event listener (best approach)
     // not only gives onclick
     // also provide propagation ability
-    document.getElementById('owl').addEventListener('click',(e) => {
-        console.log(e)
-    }, false)
+    // document.getElementById('owl').addEventListener('click',(e) => {
+    //     console.log(e)
+    // }, false)
     // by default it is false, so no need to write but sometimes necessary
 
     // Approach 4 - attachEvent(), used in previous times in the time of internet explorer
@@ -70,6 +70,87 @@
     // altKey, CtrlKey, shiftkey, keyCode
 
     // EVENT PROPAGATION
+    /*
+    document.getElementById('owl').addEventListener('click',(e) => {
+        console.log(e)
+    }, false)
+
+    document.getElementById('owl').addEventListener('click',(e) => {
+        console.log(e)
+    }, true)
+    No difference seen
+
+    2 CONTEXTS OF EVENT PROPAGATION:-
+    1) EVENT BUBBLING - false
+    2) EVENT CAPTURING - true
+
+    */
+    // document.getElementById('images').addEventListener('click',(e) => {
+    //     console.log("clicked inside ul")
+    // }, true)
+    // document.getElementById('owl').addEventListener('click',(e) => {
+    //     console.log("clicked owl")
+    // }, true)
+    // img -> li -> ul
+    // OUTPUT(with false):-
+    // clicked owl
+    // clicked inside ul
+    // => so script tracks inner element to outer element = EVENT PROPAGATION (DEFAULT IS EVENT BUBBLING)
+    // bubble goes from bottom to top
+    // capturing goes from top to bottom
+
+    // img <- li <- ul
+    // OUTPUT(with true):-
+    // clicked inside ul
+    // clicked owl
+     
+    // WHAT IF I WANT TO SEPARATE THE BUBBLING OF INNER AND OUTER ELEMENT?
+    // document.getElementById('images').addEventListener('click',(e) => {
+    //     console.log("clicked inside ul")
+    // }, false)
+    // document.getElementById('owl').addEventListener('click',(e) => {
+    //     console.log("clicked owl")
+    //     e.stopPropagation();
+    // }, false)
+    // It will not go to outer element by bubbling, remain at inner element
+
+    // using preventDefault
+    // document.getElementById('google').addEventListener('click', (e) => {
+    //     console.log("google clicked")
+    //     e.preventDefault()
+    //     e.stopPropagation()
+    // }, false)
+
+    // TASK - click on img to disappear it
+    // document.querySelector("#images").addEventListener('click', (e) => {
+    //     // console.log(e)
+    //     console.log(e.target) // -> <img>
+    //     // li needs to be deleted to delete image, so to select li
+    //     console.log(e.target.parentNode);// -> <li>
+    //     let removeIt = e.target.parentNode
+    //     // 1
+    //     removeIt.remove()
+    //     // 2
+    //     // removeIt.parentNode.removeChild(removeIt)
+
+    //     // PROBLEM - When you click on <li>(near Google), everything disappeared except the upper text WHY SO?
+    //     /*
+    //     e.target -> li
+    //     e.target.parentNode -> ul
+    //     so whole ul deleted
+
+    //     STRICT CHECKS CAN BE APPLIED
+    //     */  
+    // }, false)
+
+    document.querySelector("#images").addEventListener('click', (e) => {
+        console.log(e.target.tagName);
+        if(e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+    }, false)
 
 </script>
 </html>
