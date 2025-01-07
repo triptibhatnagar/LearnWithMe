@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const sayDate = function(str) {
+        console.log(str)
+        console.log(new Date().toDateString());
+    }
+    const intervalId = setInterval(sayDate,1000, "hi")
+    document.querySelector('#start').addEventListener('click', (e) => {
+        intervalId
+    })
+    document.querySelector('#stop').addEventListener('click', (e) => {
+        clearInterval(intervalId)
+    })
+</script>
+</html>
+
+<!--
+* setTimeout. setInterval etc... are part of asynchronous code as the main thread is not blocking
+* JS by default is not asynchronous, it is made asynchronous by using some APIs
+* Sometimes, on google, you may see JS is asynchronous because APIs are coming along with it
+* default JS engine does not allow async
+* runtime env allows async
+-->

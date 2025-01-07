@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // function available in browser based API category
+    // setTimeout(() => {
+    //     console.log("hey");
+    // },2000)// this method calls an API
+    // setInterval -> do that work continously after every given interval 
+    // setTimeout -> do that work only once after the given time 
+
+    const sayHlo = function() {
+        console.log("Hlo");
+    }
+    setTimeout(sayHlo, 2000)
+    // reference sayHlo of function is given as it is handler, execution of function is not given sayHlo()
+
+    const changeText = function() {
+        document.querySelector('h1').innerHTML = "How are you"
+    }
+    const changeMe = setTimeout(changeText, 2000)
+
+    // how to stop setTimeout
+    // clearTimeout(changeMe) // reference of setTimeout is given to specify which one to clear // generally this is done on an event
+    document.querySelector('#stop').addEventListener('click', function() {
+        clearTimeout(changeMe)
+        console.log("STOPPED")
+    })
+</script>
+</html>

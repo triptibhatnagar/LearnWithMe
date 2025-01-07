@@ -58,7 +58,7 @@ let result2 = add(12,28)
 console.log(result2);//40
 
 /**
- * 1) Global execution context is made and its aloocation to this reference variable
+ * 1) Global execution context is made and its alLocation to this reference variable
  * 2) Memory phase 
  *      val1 -> undefined
  *      val2 -> undefined
