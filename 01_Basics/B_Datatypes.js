@@ -1,7 +1,7 @@
 "use strict" //code treated as newer version of JS
 
 // alert("Hey") //ReferenceError: alert is not defined 
-//beacuse we are using node js not browser
+//because we are using node js not browser
 
 //Documentation - Tc39.es(Stds of JS, not JS), mdn
 
