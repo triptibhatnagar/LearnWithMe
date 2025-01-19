@@ -13,7 +13,8 @@ if(loggedIn) {
     console.log("Logged in")
 }
 
-//OPERATORS <, >, <=, >=, ==, !=, ===, !== 
+//COMPARISON OPERATORS <, >, <=, >=, ==, !=, ===, !== , ? (Ternary operator)
+// All the comparison operators above can also be used on strings, strings are compared alphabetically
 if(2 == "2") {//only value is checked
     console.log("executed")
 }
@@ -26,6 +27,15 @@ if(temperature < 10) {
 }
 console.log("Temperature is more than 10")//executed
 
+let text1 = "A";
+let text2 = "B";
+let result = text1 < text2;
+console.log("Is A less than B? ",result) //Is A less than B?  true
+
+let text3 = "20";
+let text4 = "5";
+let result2 = text3 < text4;
+console.log("Is 20 less than 5? ",result2) //Is 20 less than 5?  true
 //IF ELSE
 if(temperature < 10) {
     console.log("Temperature is less than 10")//executed
@@ -35,9 +45,15 @@ if(temperature < 10) {
 const score = 200
 if(score > 100) {
     const power = "fly"
-    console.log(`user power : ${power}`)
+    console.log(`user power : ${power}`)//STRING INTERPOLATION
 }
 // console.log(power);//ReferenceError: power is not defined due to block scope
+/*
+SCOPE is of three types in JavaScript.
+-> FUNCTIONAL SCOPE: This scope is mainly contained by the variables that are declared inside a function. These variables can only be accessed inside the function not outside of that.
+-> GLOBAL SCOPE: It is the global scope, which means a variable or function created in this scope can be accessed anywhere in the code.
+-> BLOCK SCOPE: It was introduced in ES6 with the introduction of the let and const variables. In this scope, if a variable is created inside a block of code or curly brackets ({}), it will not be accessible outside that block.
+*/
 
 //SHORT HAND NOTATION
 const balance = 1000
@@ -55,7 +71,7 @@ if(balance < 500) {
 }
 //less than 1200
 
-//AND(ampersand operator), OR(pipeline operator)
+//LOGICAL OPEARTORS: AND(ampersand operator), OR(pipeline operator), NOT(!)
 const userLoggedIn = true
 const debitCard = true
 const loggedInFromGoogle = false
@@ -139,6 +155,7 @@ console.log(0 == '');//true
 
 //NULLISH COALESCING OPERATOR (??) : null undefined
 //checks safety, fallback to handle errors
+//a logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined or any falsy value, and otherwise returns its left-hand side operand
 let val1;                      //undefined
 // val1 = 5 ?? 10              //5
 // val1 = undefined ?? 12      //12
@@ -146,7 +163,12 @@ let val1;                      //undefined
 val1 = null ?? 10 ?? 14        //10
 console.log(val1);
 
-//TERNARY OPERATOR
+//TERNARY OPERATOR or CONDITIONAL OPERATOR
 // condition ? true : false
 const price = 100
 price>=80 ? console.log("less than or equal to 80") : console.log("more than 80");//less than or equal to 80
+
+// OPTIONAL CHAINING OPERATOR (?.)
+// returns undefined if an object is undefined or null (instead of throwing an error)
+
+// BITWISE OPERATORS (&, |, ~, ^, <<, >>, >>>)

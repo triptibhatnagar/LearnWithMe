@@ -21,6 +21,7 @@ let isLoggedIn = false
 
 //object
 
+// TYPE OPERATOR
 console.log(typeof "abc")   //string
 console.log(typeof 12)      //number
 console.log(typeof null)    //object
