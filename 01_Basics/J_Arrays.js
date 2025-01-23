@@ -82,7 +82,7 @@ console.log(fruits);//[ 'apples', 'mangoes', 'oranges' ]
 
 //push -> change in original array, concat -> no change in original array
 
-//spread opeartor
+//spread operator
 const grocery = [...fruits, ...veggies]
 console.log(grocery);//[ 'apples', 'mangoes', 'oranges', 'spinach', 'capsicum', 'beans' ]
 

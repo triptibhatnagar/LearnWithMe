@@ -11,6 +11,7 @@
     <button id="stop">Stop</button>
 </body>
 <script>
+    // SET INTERVAL, CLEAR INTERVAL
     const sayDate = function(str) {
         console.log(str)
         console.log(new Date().toDateString());
@@ -18,10 +19,10 @@
     const intervalId = setInterval(sayDate,1000, "hi")
     document.querySelector('#start').addEventListener('click', (e) => {
         intervalId
-    })
+    });
     document.querySelector('#stop').addEventListener('click', (e) => {
         clearInterval(intervalId)
-    })
+    });
 </script>
 </html>
 

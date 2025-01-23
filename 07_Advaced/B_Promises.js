@@ -23,9 +23,11 @@ fetch('https://something.com').then().catch().finally()  //promises being consum
  * finally - everything
  */
 
-// but befoe consuming, they are created
+// but before consuming, learn how they are created
 // Promise is an object
 // by new keyword, we get another instance of object
+// Libraries like Q, BlueBird were used earlier
+// promise reduce callback hell
 // CREATION
 const promise1 = new Promise(function(resolve, reject) {
     // do an async task
@@ -62,6 +64,7 @@ new Promise(function(resolve, reject) {
 
 const promise3 = new Promise(function(resolve, reject) {
     setTimeout(() => {
+      // data can also be passed
         resolve({
             username : "ABC",
             email : "abc@gmail.com"
@@ -90,6 +93,7 @@ const promise4 = new Promise(function (resolve, reject) {
 })
 // promise4.then().catch()
 
+// avoiding callback hell
 // const username = promise4.then((user) => {
 //     console.log(user);
 //     return user.username
@@ -185,7 +189,7 @@ const promise5 = new Promise((resolve, reject) => {
 // }
 // consumePromise5()
 // This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch().
-// async await cannot handle errors
+// async await cannot handle errors directly
 
 async function consumePromise5() {
     try {
