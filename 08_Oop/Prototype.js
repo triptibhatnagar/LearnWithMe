@@ -78,3 +78,9 @@ String.prototype.truelength = function() {
 anotherUsername.truelength()//Truelength is : 11
 "tripti".truelength()
 "haldiWalaDoodh".truelength()
+/*
+tripti
+Truelength is : 6
+haldiWalaDoodh
+Truelength is : 14
+*/
