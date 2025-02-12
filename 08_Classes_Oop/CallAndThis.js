@@ -36,3 +36,11 @@ function createUser(username, email, password) {
 
 const chaiLover = new createUser("chai", "chai09@fb.com", "876")
 console.log(chaiLover);//createUser { email: 'chai09@fb.com', password: '876' }
+// call - pass current execution context to another object
+/*
+createUser {
+  username: 'chai',
+  email: 'chai09@fb.com',
+  password: '876'
+}
+*/
